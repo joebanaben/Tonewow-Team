@@ -2,266 +2,510 @@
 <html lang="ms">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#061426">
 <title>ToneWow | Kaizen Radu Saja</title>
-<meta name="description" content="Kenali ToneWow, bandingkan manfaat, lihat pakej dan pelan data, kemudian hubungi agen melalui WhatsApp.">
+<meta name="description" content="Kenali simkad ToneWow, bandingkan manfaat, lihat pakej dan pelan data, kemudian hubungi agen anda melalui WhatsApp.">
 <style>
 :root{
-  --navy:#061528; --navy2:#0b2b50; --blue:#0f6fff; --sky:#48c8ff;
-  --gold:#f2c24e; --white:#fff; --muted:#b9c9da; --green:#25d366;
+  --bg:#04101f;
+  --bg2:#071a30;
+  --panel:#0b203a;
+  --panel2:#0c2b4e;
+  --blue:#1683ff;
+  --cyan:#55d7ff;
+  --gold:#f4c75f;
+  --gold2:#ffe7a2;
+  --green:#25d366;
+  --text:#f8fbff;
+  --muted:#aebfd2;
+  --line:rgba(255,255,255,.11);
+  --shadow:0 24px 70px rgba(0,0,0,.32);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  margin:0;
+  color:var(--text);
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  line-height:1.55;
   background:
-    radial-gradient(circle at 85% 4%,rgba(15,111,255,.25),transparent 24%),
-    linear-gradient(180deg,#05111f 0%,#0b2442 48%,#07182c 100%);
-  color:#fff;line-height:1.55;
+    radial-gradient(circle at 82% 3%,rgba(22,131,255,.28),transparent 28rem),
+    radial-gradient(circle at 12% 32%,rgba(244,199,95,.10),transparent 26rem),
+    linear-gradient(180deg,#030c18 0%,#071b31 42%,#061426 100%);
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
+  opacity:.22;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:linear-gradient(to bottom,black,transparent 85%);
 }
 a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
+img{display:block;max-width:100%}
+button,input{font:inherit}
 .wrap{width:min(1120px,92%);margin:auto}
-.top{
-  position:sticky;top:0;z-index:40;background:rgba(5,17,31,.88);
-  backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)
+.glow-line{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(244,199,95,.7),rgba(85,215,255,.5),transparent)
+}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(3,12,24,.78);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  backdrop-filter:blur(16px);
 }
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.brandrow{display:flex;align-items:center;gap:12px}
-.brandrow img{object-fit:contain}
-.brandrow .tw{height:36px;width:auto;background:white;border-radius:8px;padding:4px}
-.brandrow .kz{height:48px;width:auto;border-radius:7px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .kaizen{height:46px;width:auto}
+.brand .tonewow{height:34px;width:auto;background:#fff;border-radius:9px;padding:4px 7px}
+.nav-actions{display:flex;gap:10px;align-items:center}
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:13px 18px;border-radius:14px;font-weight:850;border:1px solid transparent;
-  cursor:pointer
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:13px 18px;border-radius:14px;border:1px solid transparent;
+  font-weight:850;cursor:pointer;transition:.2s ease;
 }
-.btn-gold{background:linear-gradient(135deg,#f4c552,#ffe49a);color:#17212d}
-.btn-wa{background:#25d366;color:#06150b}
-.btn-ghost{border-color:rgba(255,255,255,.15);background:rgba(255,255,255,.05)}
-.hero{padding:66px 0 44px}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
-.pill{
-  display:inline-block;padding:7px 11px;border-radius:999px;
-  color:#ffe9ae;border:1px solid rgba(244,197,82,.38);
-  background:rgba(244,197,82,.08);font-size:12px;font-weight:850
+.btn:hover{transform:translateY(-1px)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#17202b;box-shadow:0 12px 28px rgba(244,199,95,.16)}
+.btn-wa{background:var(--green);color:#06160b;box-shadow:0 12px 28px rgba(37,211,102,.16)}
+.btn-ghost{background:rgba(255,255,255,.055);border-color:var(--line)}
+.hero{padding:84px 0 62px;position:relative}
+.hero:after{
+  content:"";position:absolute;right:-180px;top:55px;width:440px;height:440px;border-radius:50%;
+  border:1px solid rgba(85,215,255,.10);box-shadow:0 0 120px rgba(22,131,255,.13)
 }
-h1{font-size:clamp(40px,6vw,72px);line-height:1.02;letter-spacing:-2px;margin:15px 0}
-h2{font-size:clamp(28px,4vw,44px);line-height:1.1;letter-spacing:-1px;margin:0 0 10px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
+.kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 12px;border-radius:999px;
+  background:rgba(244,199,95,.08);border:1px solid rgba(244,199,95,.34);
+  color:#ffe7a4;font-size:12px;font-weight:900;letter-spacing:.35px
+}
+h1{font-size:clamp(42px,6vw,74px);line-height:1.02;letter-spacing:-2px;margin:18px 0 18px}
+h2{font-size:clamp(29px,4vw,44px);line-height:1.08;letter-spacing:-1px;margin:0 0 12px}
+h3{margin:0}
 .gold{color:var(--gold)}
-.lead{font-size:18px;color:#d6e2ef;max-width:660px}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.agentline{margin-top:19px;color:#b9c9da;font-size:14px}
-.hero-card{
-  background:linear-gradient(180deg,rgba(15,47,84,.95),rgba(8,28,51,.98));
-  border:1px solid rgba(255,255,255,.10);border-radius:28px;padding:18px;
-  box-shadow:0 25px 70px rgba(0,0,0,.28)
+.lead{font-size:18px;color:#d2deea;max-width:650px;margin:0}
+.hero-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:25px}
+.agent-by{margin-top:20px;color:#b2c3d5;font-size:14px}
+.hero-visual{
+  position:relative;padding:20px;border-radius:30px;
+  background:linear-gradient(150deg,rgba(22,131,255,.18),rgba(255,255,255,.035));
+  border:1px solid rgba(255,255,255,.10);box-shadow:var(--shadow);overflow:hidden
 }
-.hero-card img{border-radius:22px}
-section{padding:55px 0}
-.sec-intro{color:var(--muted);max-width:720px;margin:0 0 25px}
-.image-panel{
-  padding:12px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10);
-  border-radius:24px;box-shadow:0 18px 50px rgba(0,0,0,.22)
+.hero-visual:before{
+  content:"";position:absolute;inset:auto -70px -95px auto;width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle,rgba(244,199,95,.17),transparent 68%)
 }
-.image-panel img{width:100%;border-radius:16px}
-.note{
-  margin-top:12px;color:#a9bad0;font-size:12px;text-align:center
+.hero-visual img{border-radius:22px;position:relative;z-index:1}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:16px}
+.stat{padding:14px;border-radius:16px;background:rgba(3,14,27,.58);border:1px solid var(--line)}
+.stat b{display:block;font-size:15px}
+.stat span{font-size:11px;color:var(--muted)}
+section{padding:68px 0;position:relative}
+.section-head{max-width:760px;margin-bottom:28px}
+.section-head p{margin:0;color:var(--muted)}
+.card{
+  border-radius:25px;background:linear-gradient(180deg,rgba(14,43,77,.90),rgba(7,24,44,.94));
+  border:1px solid var(--line);box-shadow:0 18px 54px rgba(0,0,0,.22)
 }
-.quick{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px
+.story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;align-items:center}
+.story-copy{padding:28px}
+.story-copy p{color:#cfdae7;margin:9px 0}
+.story-copy strong{color:#fff}
+.media-card{padding:11px;overflow:hidden}
+.media-card img{width:100%;border-radius:17px}
+.micro{font-size:12px;color:#93a9bf;margin-top:12px}
+.package-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}
+.package{padding:23px;position:relative;overflow:hidden}
+.package:before{
+  content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-55px;top:-60px;
+  background:radial-gradient(circle,rgba(22,131,255,.18),transparent 70%)
 }
-.q{
-  padding:17px;border-radius:18px;background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.08);text-align:center
+.package.pro,.package.biz{border-color:rgba(244,199,95,.30)}
+.pkg-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.pkg-name{font-size:22px;font-weight:950}
+.price{font-size:31px;font-weight:950;color:var(--gold)}
+.price small{font-size:11px;font-weight:700;color:var(--muted);display:block;text-align:right;margin-top:-4px}
+.package ul{list-style:none;padding:0;margin:17px 0 0}
+.package li{margin:9px 0;color:#d8e4ef}
+.package li:before{content:"✓";color:#78e2ba;font-weight:950;margin-right:8px}
+.warning{
+  margin-top:16px;padding:12px 14px;border-radius:14px;
+  background:rgba(255,176,77,.09);border:1px solid rgba(255,176,77,.22);color:#ffe2ad;font-size:13px
 }
-.q b{display:block;font-size:15px}
-.q span{color:#b7c8da;font-size:12px}
+.good{
+  margin-top:16px;padding:12px 14px;border-radius:14px;
+  background:rgba(37,211,102,.08);border:1px solid rgba(37,211,102,.22);color:#baf4cd;font-size:13px
+}
+.recommend{
+  margin-top:18px;padding:21px;border-radius:22px;
+  background:linear-gradient(135deg,rgba(244,199,95,.12),rgba(22,131,255,.11));
+  border:1px solid rgba(244,199,95,.22)
+}
+.recommend b{color:#ffe49a}
+.plan-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:13px;margin-top:24px}
+.plan{
+  padding:18px 14px;border-radius:19px;background:rgba(255,255,255,.045);border:1px solid var(--line);
+  min-height:170px;display:flex;flex-direction:column;justify-content:space-between
+}
+.plan strong{font-size:20px}
+.plan .gb{font-size:24px;font-weight:950;color:#9ddcff;margin-top:4px}
+.plan small{color:var(--muted)}
+.plan button{margin-top:14px;width:100%;padding:10px;border:0;border-radius:11px;font-weight:850;cursor:pointer;background:rgba(255,255,255,.08);color:#fff}
+.plan button:hover{background:rgba(244,199,95,.18)}
+.faq{display:grid;gap:11px}
+details{
+  border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.04);
+  overflow:hidden
+}
+summary{
+  list-style:none;cursor:pointer;padding:17px 19px;font-weight:850;display:flex;justify-content:space-between;gap:18px
+}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-size:20px;color:var(--gold)}
+details[open] summary:after{content:"−"}
+details p{margin:0;padding:0 19px 18px;color:#c8d5e3}
 .cta{
-  border-radius:28px;padding:30px;background:linear-gradient(135deg,#0d427e,#0d73d8);
-  border:1px solid rgba(255,255,255,.12)
+  padding:31px;border-radius:28px;background:
+    radial-gradient(circle at 80% 10%,rgba(85,215,255,.15),transparent 24rem),
+    linear-gradient(135deg,#0a3d74,#0d6ed0);
+  border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow)
 }
-.cta-grid{display:grid;grid-template-columns:1fr .9fr;gap:24px;align-items:start}
-.formbox{
-  padding:20px;border-radius:20px;background:rgba(5,18,34,.50);
-  border:1px solid rgba(255,255,255,.11)
-}
-label{display:block;font-size:12px;color:#d2deeb;margin:0 0 6px}
+.cta-grid{display:grid;grid-template-columns:1fr .9fr;gap:25px;align-items:start}
+.agent-card{padding:19px;border-radius:19px;background:rgba(3,15,28,.55);border:1px solid rgba(255,255,255,.11)}
+.agent-name{font-size:24px;font-weight:950}
+.agent-phone{color:#c2d1e0}
+.agent-tools{margin-top:16px}
+label{display:block;font-size:12px;color:#c9d6e5;margin:0 0 6px}
 input{
-  width:100%;padding:13px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.15);
-  background:#07192d;color:#fff;margin-bottom:12px;outline:none
+  width:100%;padding:13px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.14);
+  background:#06172a;color:#fff;outline:none;margin-bottom:11px
 }
-input:focus{border-color:#63b7ff}
-.sharebox{display:flex;gap:8px}
-.sharebox input{margin:0}
-.small{font-size:12px;color:#aebed0}
-.preview{
-  border-radius:16px;background:#07192c;padding:15px;border:1px solid rgba(255,255,255,.1);
-  margin-top:13px
+input:focus{border-color:#5cb8ff}
+.share-row{display:flex;gap:8px}
+.share-row input{margin:0}
+.small{font-size:12px;color:#aabacc}
+.disclaimer{
+  margin-top:20px;padding:14px 16px;border-radius:15px;background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.08);font-size:12px;color:#9fb2c6
 }
-.preview-name{font-size:20px;font-weight:900}
-.footer{padding:30px 0 90px;color:#93a9bf;font-size:12px;text-align:center}
+.footer{padding:30px 0 92px;text-align:center;color:#8fa5bc;font-size:12px}
+.footer-logos{display:flex;justify-content:center;align-items:center;gap:14px;margin-bottom:13px}
+.footer-logos .kaizen{height:44px}
+.footer-logos .tonewow{height:31px;background:#fff;border-radius:8px;padding:4px 7px}
 .float-wa{
-  position:fixed;right:14px;bottom:14px;z-index:45;background:#25d366;color:#06150b;
-  font-weight:900;border-radius:999px;padding:14px 18px;box-shadow:0 16px 38px rgba(0,0,0,.32)
+  position:fixed;right:14px;bottom:14px;z-index:48;
+  background:var(--green);color:#06160b;font-weight:950;border-radius:999px;
+  padding:14px 18px;box-shadow:0 16px 40px rgba(0,0,0,.33)
 }
-.editbtn{
-  position:fixed;left:14px;bottom:14px;z-index:45;background:#fff;color:#0b2037;
-  font-weight:850;border-radius:999px;padding:12px 16px;border:0;box-shadow:0 16px 38px rgba(0,0,0,.28)
+.team-tool{
+  margin-top:18px;border-top:1px solid rgba(255,255,255,.09);padding-top:16px
 }
-.drawer{
-  position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:60;display:none;align-items:flex-end;justify-content:center
+.team-tool summary{padding:0;font-size:13px;color:#c6d5e5}
+.team-tool summary:after{font-size:16px}
+.team-tool[open] summary{margin-bottom:12px}
+@media(max-width:930px){
+  .hero-grid,.story-grid,.cta-grid{grid-template-columns:1fr}
+  .plan-cards{grid-template-columns:repeat(2,1fr)}
+  .hero{padding-top:58px}
 }
-.drawer.show{display:flex}
-.sheet{
-  width:min(560px,100%);background:#0a2039;border-radius:24px 24px 0 0;padding:22px;
-  border-top:1px solid rgba(255,255,255,.12)
-}
-.sheet-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.close{background:rgba(255,255,255,.08);color:#fff;border:0;border-radius:10px;padding:8px 11px}
-@media(max-width:850px){
-  .hero-grid,.cta-grid{grid-template-columns:1fr}
-  .quick{grid-template-columns:1fr 1fr}
-  .hero{padding-top:44px}
-  .brandrow .kz{height:40px}
-  .brandrow .tw{height:30px}
-}
-@media(max-width:520px){
-  .quick{grid-template-columns:1fr 1fr}
-  .nav .btn{display:none}
-  h1{letter-spacing:-1px}
+@media(max-width:620px){
+  .nav-actions .btn-gold{display:none}
+  .brand .kaizen{height:38px}
+  .brand .tonewow{height:29px}
+  .package-grid{grid-template-columns:1fr}
+  .plan-cards{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:1fr}
+  h1{letter-spacing:-1.25px}
+  section{padding:55px 0}
+  .story-copy{padding:22px}
 }
 </style>
 </head>
 <body>
 
-<div class="top">
+<div class="topbar">
   <div class="wrap nav">
-    <div class="brandrow">
-      <img src="kaizen.webp" class="kz" alt="Kaizen Radu Saja">
-      <img src="tonewow-logo.webp" class="tw" alt="ToneWow powered by CelcomDigi">
+    <div class="brand">
+      <img src="kaizen.webp" class="kaizen" alt="Kaizen Radu Saja">
+      <img src="tonewow-logo.webp" class="tonewow" alt="ToneWow powered by CelcomDigi">
     </div>
-    <a id="topWA" class="btn btn-wa" target="_blank">WhatsApp Agen</a>
+    <div class="nav-actions">
+      <a href="#pakej" class="btn btn-gold">Lihat pakej</a>
+      <a id="navWA" class="btn btn-wa" target="_blank">WhatsApp</a>
+    </div>
   </div>
 </div>
+<div class="glow-line"></div>
 
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="pill">SATU SIM • BANYAK MANFAAT</span>
-      <h1>SIM Card Biasa Guna.<br><span class="gold">ToneWow Bagi Lebih.</span></h1>
+      <div class="kicker">TONEWOW × KAIZEN RADU SAJA</div>
+      <h1>simkad biasa guna.<br><span class="gold">ToneWow bagi lebih.</span></h1>
       <p class="lead">
-        Tengok perbezaan, pilih pakej dan pelan data yang sesuai, kemudian terus hubungi agen melalui WhatsApp.
+        Ini simkad ToneWow — boleh digunakan untuk internet dan panggilan seperti simkad biasa,
+        tetapi hadir dengan lebih banyak manfaat dalam satu ekosistem.
       </p>
-      <div class="actions">
-        <a href="#beza" class="btn btn-gold">Tengok Perbezaan</a>
-        <a id="heroWA" class="btn btn-wa" target="_blank">WhatsApp Sekarang</a>
+      <div class="hero-actions">
+        <a href="#beza" class="btn btn-gold">Tengok perbezaan</a>
+        <a id="heroWA" class="btn btn-wa" target="_blank">Tanya agen saya</a>
       </div>
-      <div class="agentline" id="agentLine">Dikongsi oleh Branch Joe</div>
+      <div class="agent-by" id="agentLine">Dikongsi oleh Branch Joe</div>
     </div>
 
-    <div class="hero-card">
-      <img src="sim.webp" alt="SIM Card ToneWow">
+    <div class="hero-visual">
+      <img src="sim.webp" alt="simkad ToneWow">
+      <div class="hero-stats">
+        <div class="stat"><b>4G / 5G</b><span>Rangkaian CelcomDigi</span></div>
+        <div class="stat"><b>Cashback</b><span>Manfaat mengikut pelan</span></div>
+        <div class="stat"><b>Pilihan fleksibel</b><span>Pilih ikut penggunaan</span></div>
+      </div>
     </div>
   </div>
 </header>
 
 <section id="beza">
   <div class="wrap">
-    <h2>Apa beza SIM biasa dengan ToneWow?</h2>
-    <p class="sec-intro">Gambar penerangan ini dimasukkan terus dalam landing page supaya prospek boleh faham dengan cepat.</p>
-    <div class="image-panel">
-      <img src="comparison.webp" alt="Perbandingan SIM biasa dan ToneWow">
+    <div class="section-head">
+      <div class="kicker">KENAPA TONEWOW?</div>
+      <h2>Apa beza simkad biasa dengan simkad ToneWow?</h2>
+      <p>
+        simkad biasa biasanya digunakan untuk data, panggilan dan SMS.
+        simkad ToneWow pula menawarkan manfaat tambahan seperti cashback, Wowcher Point,
+        perlindungan mengikut pelan dan peluang komisen untuk agen.
+      </p>
+    </div>
+
+    <div class="story-grid">
+      <div class="card story-copy">
+        <h3>Ringkasnya</h3>
+        <p><strong>simkad biasa:</strong> top up → guna internet/panggilan → habis.</p>
+        <p><strong>simkad ToneWow:</strong> guna internet/panggilan sambil menikmati manfaat tambahan mengikut pakej dan pelan.</p>
+        <p class="micro">Manfaat tertakluk kepada pakej, pelan dan terma semasa.</p>
+      </div>
+      <div class="card media-card">
+        <img src="comparison.webp" alt="Perbandingan simkad biasa dan simkad ToneWow">
+      </div>
     </div>
   </div>
 </section>
 
 <section id="pakej">
   <div class="wrap">
-    <h2>Pilih pakej ToneWow</h2>
-    <p class="sec-intro">Prospek boleh tengok sendiri pilihan pakej sebelum bertanya kepada agen.</p>
-    <div class="image-panel">
-      <img src="packages.webp" alt="Pakej ToneWow">
+    <div class="section-head">
+      <div class="kicker">PILIH CARA ANDA BERMULA</div>
+      <h2>4 pakej ToneWow</h2>
+      <p>
+        Setiap pakej mempunyai cara permulaan yang berbeza. Pilih ikut bajet dan cara penggunaan anda.
+      </p>
+    </div>
+
+    <div class="package-grid">
+      <article class="card package">
+        <div class="pkg-top">
+          <div><div class="pkg-name">Super Lite</div><div class="small">Permulaan paling ringan</div></div>
+          <div class="price">RM10<small>pendaftaran</small></div>
+        </div>
+        <ul>
+          <li>sesuai untuk yang mahu mula dengan kos paling rendah</li>
+          <li>boleh pilih pelan data selepas pendaftaran</li>
+          <li>nikmati manfaat ToneWow mengikut pelan yang dilanggan</li>
+        </ul>
+        <div class="warning"><b>Penting:</b> tiada pelan data sedia ada. Buat top up dalam tempoh 7 hari selepas pendaftaran untuk memilih dan mengaktifkan pelan data.</div>
+        <button class="btn btn-ghost" style="width:100%;margin-top:15px" onclick="askPackage('Super Lite')">Tanya tentang Super Lite</button>
+      </article>
+
+      <article class="card package">
+        <div class="pkg-top">
+          <div><div class="pkg-name">Lite</div><div class="small">Pilihan asas</div></div>
+          <div class="price">RM19.50<small>pendaftaran</small></div>
+        </div>
+        <ul>
+          <li>sesuai untuk pengguna yang mahu pakej asas ToneWow</li>
+          <li>boleh pilih pelan data ikut bajet dan keperluan</li>
+          <li>manfaat tambahan bergantung pada pelan yang dipilih</li>
+        </ul>
+        <div class="warning"><b>Penting:</b> tiada pelan data sedia ada. Buat top up dalam tempoh 7 hari selepas pendaftaran untuk memilih dan mengaktifkan pelan data.</div>
+        <button class="btn btn-ghost" style="width:100%;margin-top:15px" onclick="askPackage('Lite')">Tanya tentang Lite</button>
+      </article>
+
+      <article class="card package pro">
+        <div class="pkg-top">
+          <div><div class="pkg-name">Pro</div><div class="small">Terus ada data semasa daftar</div></div>
+          <div class="price">RM49.50<small>pendaftaran pertama</small></div>
+        </div>
+        <ul>
+          <li>disertakan <b>FU35</b> semasa pendaftaran pertama</li>
+          <li><b>150GB data</b> untuk 30 hari</li>
+          <li>lebih mudah kerana tidak perlu tergesa-gesa top up untuk mula guna data</li>
+        </ul>
+        <div class="good"><b>Fleksibel:</b> FU35 bukan pelan wajib setiap bulan. Selepas tempoh pertama, anda boleh pilih pelan data ToneWow lain mengikut keperluan.</div>
+        <button class="btn btn-gold" style="width:100%;margin-top:15px" onclick="askPackage('Pro')">Saya berminat Pro</button>
+      </article>
+
+      <article class="card package biz">
+        <div class="pkg-top">
+          <div><div class="pkg-name">Biz</div><div class="small">Data lebih besar untuk penggunaan aktif</div></div>
+          <div class="price">RM128<small>pendaftaran pertama</small></div>
+        </div>
+        <ul>
+          <li>disertakan <b>FU60</b> semasa pendaftaran pertama</li>
+          <li><b>500GB data</b> untuk 30 hari</li>
+          <li>sesuai untuk pengguna aktif dan yang mahu fokus bina bisnes ToneWow</li>
+        </ul>
+        <div class="good"><b>Fleksibel:</b> FU60 bukan pelan wajib setiap bulan. Selepas tempoh pertama, anda bebas memilih pelan data ToneWow lain.</div>
+        <button class="btn btn-gold" style="width:100%;margin-top:15px" onclick="askPackage('Biz')">Saya berminat Biz</button>
+      </article>
+    </div>
+
+    <div class="recommend">
+      <b>Cadangan mudah:</b> kalau mahu terus guna data tanpa perlu fikir top up awal selepas daftar,
+      Pro atau Biz lebih praktikal kerana sudah mempunyai pelan data semasa pendaftaran pertama.
+      Super Lite dan Lite pula sesuai jika mahu bermula dengan kos lebih rendah.
+    </div>
+
+    <div class="card media-card" style="margin-top:20px">
+      <img src="packages.webp" alt="Ringkasan 4 pakej ToneWow">
     </div>
   </div>
 </section>
 
 <section id="data">
   <div class="wrap">
-    <h2>Pelan data ToneWow</h2>
-    <p class="sec-intro">FU35 hingga FU120 dipaparkan dalam satu bahagian yang mudah dibanding.</p>
-    <div class="image-panel">
-      <img src="data-plans.webp" alt="Pelan Data ToneWow">
+    <div class="section-head">
+      <div class="kicker">PELAN DATA</div>
+      <h2>Pilih ikut penggunaan anda</h2>
+      <p>
+        Perlukan internet lebih banyak atau lebih ringan? Pilih pelan yang sesuai.
+        Pelan boleh ditukar pada bulan seterusnya — anda tidak terikat dengan pelan pendaftaran pertama.
+      </p>
     </div>
 
-    <div class="quick">
-      <div class="q"><b>Internet</b><span>Pilihan data ikut keperluan</span></div>
-      <div class="q"><b>Call</b><span>Ikut manfaat pelan</span></div>
-      <div class="q"><b>Cashback</b><span>Manfaat mengikut terma semasa</span></div>
-      <div class="q"><b>WhatsApp Agen</b><span>Terus tanya dan daftar</span></div>
+    <div class="plan-cards">
+      <div class="plan"><div><strong>FU35</strong><div class="gb">150GB</div><small>RM35 • 30 hari</small></div><button onclick="askPlan('FU35')">Tanya FU35</button></div>
+      <div class="plan"><div><strong>FU50</strong><div class="gb">300GB</div><small>RM50 • 30 hari</small></div><button onclick="askPlan('FU50')">Tanya FU50</button></div>
+      <div class="plan"><div><strong>FU60</strong><div class="gb">500GB</div><small>RM60 • 30 hari</small></div><button onclick="askPlan('FU60')">Tanya FU60</button></div>
+      <div class="plan"><div><strong>FU80</strong><div class="gb">650GB</div><small>RM80 • 30 hari</small></div><button onclick="askPlan('FU80')">Tanya FU80</button></div>
+      <div class="plan"><div><strong>FU120</strong><div class="gb">800GB</div><small>RM120 • 30 hari</small></div><button onclick="askPlan('FU120')">Tanya FU120</button></div>
+    </div>
+
+    <div class="card media-card" style="margin-top:20px">
+      <img src="data-plans.webp" alt="Pelan data ToneWow">
     </div>
   </div>
 </section>
 
-<section id="daftar">
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">SOALAN BIASA</div>
+      <h2>FAQ ToneWow</h2>
+      <p>Jawapan ringkas untuk perkara yang paling selalu ditanya sebelum mendaftar.</p>
+    </div>
+
+    <div class="faq">
+      <details>
+        <summary>ToneWow guna rangkaian apa?</summary>
+        <p>ToneWow menggunakan rangkaian CelcomDigi 4G/5G, tertakluk kepada liputan kawasan dan peranti.</p>
+      </details>
+      <details>
+        <summary>Boleh kekalkan nombor lama?</summary>
+        <p>Boleh melalui proses MNP, tertakluk kepada syarat port-in dan telco asal.</p>
+      </details>
+      <details>
+        <summary>Kalau saya cuma mahu guna sebagai pengguna, boleh?</summary>
+        <p>Boleh. Anda tidak wajib fokus sebagai agen. Anda boleh guna simkad ToneWow seperti biasa dan menikmati manfaat mengikut pakej atau pelan yang dipilih.</p>
+      </details>
+      <details>
+        <summary>Super Lite dan Lite perlu top up bila?</summary>
+        <p>Ya. Kedua-duanya tiada pelan data sedia ada selepas pendaftaran, jadi buat top up dalam tempoh 7 hari untuk memilih dan mengaktifkan pelan data.</p>
+      </details>
+      <details>
+        <summary>Pro dan Biz terus ada data selepas daftar?</summary>
+        <p>Ya. Pro disertakan FU35 dengan 150GB untuk 30 hari, manakala Biz disertakan FU60 dengan 500GB untuk 30 hari semasa pendaftaran pertama.</p>
+      </details>
+      <details>
+        <summary>Adakah Pro mesti guna FU35 setiap bulan dan Biz mesti guna FU60?</summary>
+        <p>Tidak. Itu ialah pelan semasa pendaftaran pertama. Untuk bulan seterusnya, anda boleh pilih pelan data ToneWow lain mengikut penggunaan dan bajet.</p>
+      </details>
+      <details>
+        <summary>Ada cashback dan Wowcher Point?</summary>
+        <p>Ada manfaat cashback dan Wowcher Point untuk pelan atau top up yang layak, tertakluk kepada terma semasa.</p>
+      </details>
+      <details>
+        <summary>Ada perlindungan takaful?</summary>
+        <p>Ada pada pakej atau pelan tertentu. Jumlah dan jenis perlindungan bergantung kepada pakej serta terma semasa.</p>
+      </details>
+      <details>
+        <summary>Kalau jadi agen, macam mana komisen dikira?</summary>
+        <p>Komisen bergantung kepada pakej, penggunaan, top up, aktiviti rangkaian dan struktur rank/program semasa. Tanya agen yang berkongsi link ini untuk penerangan yang sesuai.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="hubungi">
   <div class="wrap">
     <div class="cta">
       <div class="cta-grid">
         <div>
-          <span class="pill">LANGKAH SETERUSNYA</span>
-          <h2 style="margin-top:12px">Mahu daftar atau mahu tahu lebih lanjut?</h2>
+          <div class="kicker">LANGKAH SETERUSNYA</div>
+          <h2 style="margin-top:14px">Mahu daftar atau mahu tahu lebih lanjut?</h2>
           <p class="lead" style="font-size:16px">
-            Tekan WhatsApp. Mesej akan terus pergi kepada agen yang berkongsi link ini.
+            Tekan WhatsApp dan mesej akan terus pergi kepada agen yang berkongsi link ini.
           </p>
-          <div class="preview">
+          <div class="agent-card" style="margin-top:18px">
             <div class="small">Agen anda</div>
-            <div class="preview-name" id="displayName">Branch Joe</div>
-            <div class="small" id="displayPhone">01171110960</div>
+            <div class="agent-name" id="displayName">Branch Joe</div>
+            <div class="agent-phone" id="displayPhone">01171110960</div>
+            <a id="ctaWA" class="btn btn-wa" style="width:100%;margin-top:14px" target="_blank">WhatsApp sekarang</a>
           </div>
         </div>
 
-        <div class="formbox">
-          <div style="font-weight:900;font-size:18px;margin-bottom:12px">Buat link agen sendiri</div>
-          <label>Nama agen</label>
-          <input id="agentName" value="Branch Joe" placeholder="Contoh: Stella">
-          <label>Nombor WhatsApp</label>
-          <input id="agentPhone" value="601171110960" placeholder="Contoh: 60123456789">
-          <button class="btn btn-gold" style="width:100%" onclick="buildAgentLink()">Buat Link Saya</button>
+        <div class="agent-tools">
+          <details class="team-tool">
+            <summary>Untuk agen: jana link share anda</summary>
+            <label>Nama agen</label>
+            <input id="agentName" value="Branch Joe" placeholder="Contoh: Stella">
+            <label>Nombor WhatsApp</label>
+            <input id="agentPhone" value="601171110960" placeholder="Contoh: 60123456789">
+            <button class="btn btn-gold" style="width:100%" onclick="buildAgentLink()">Buat link saya</button>
+            <label style="margin-top:14px">Link untuk dikongsi</label>
+            <div class="share-row">
+              <input id="shareLink" readonly>
+              <button class="btn btn-ghost" onclick="copyLink()">Copy</button>
+            </div>
+            <div id="copyStatus" class="small" style="margin-top:8px"></div>
+          </details>
 
-          <label style="margin-top:14px">Link untuk share</label>
-          <div class="sharebox">
-            <input id="shareLink" readonly>
-            <button class="btn btn-ghost" onclick="copyLink()">Copy</button>
+          <div class="disclaimer">
+            Maklumat pakej, pelan, promosi, cashback, Wowcher dan perlindungan boleh berubah.
+            Sahkan maklumat semasa sebelum pendaftaran.
           </div>
-          <div id="copyStatus" class="small" style="margin-top:8px"></div>
-          <p class="small">Bila link ini dibuka, nama agen dan butang WhatsApp akan berubah ikut agen tersebut.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="footer">
-  ToneWow • Kaizen Radu Saja<br>
-  Maklumat promosi/pelan boleh berubah. Sahkan maklumat terkini sebelum pendaftaran.
-</div>
-
-<button class="editbtn" onclick="openEditor()">Tukar Agen</button>
-<a id="floatWA" class="float-wa" target="_blank">WhatsApp Agen</a>
-
-<div id="drawer" class="drawer" onclick="closeOutside(event)">
-  <div class="sheet">
-    <div class="sheet-head">
-      <strong>Tukar Nama & WhatsApp</strong>
-      <button class="close" onclick="closeEditor()">Tutup</button>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-logos">
+      <img src="kaizen.webp" class="kaizen" alt="Kaizen Radu Saja">
+      <img src="tonewow-logo.webp" class="tonewow" alt="ToneWow">
     </div>
-    <label>Nama agen</label>
-    <input id="sheetName" placeholder="Nama agen">
-    <label>Nombor WhatsApp</label>
-    <input id="sheetPhone" placeholder="60123456789">
-    <button class="btn btn-gold" style="width:100%" onclick="saveFromSheet()">Guna Agen Ini</button>
+    <div><strong>Buat Dulu Baru Tau!</strong></div>
+    <div style="margin-top:4px">ToneWow • Kaizen Radu Saja</div>
   </div>
-</div>
+</footer>
+
+<a id="floatWA" class="float-wa" target="_blank">WhatsApp agen</a>
 
 <script>
 function cleanPhone(v){ return (v||'').replace(/\D/g,''); }
@@ -273,45 +517,52 @@ function currentAgent(){
     phone: cleanPhone(q.get('wa') || '601171110960')
   };
 }
-
+let activeAgent = currentAgent();
 function prettyPhone(phone){
   if(phone.startsWith('60')) return '0' + phone.slice(2);
   return phone;
 }
-
-function waLink(name,phone){
-  const msg = `Hi ${name}, saya sudah tengok landing page ToneWow. Saya mahu tahu lebih lanjut / mahu daftar. Boleh bantu saya?`;
+function waLink(name, phone, extra=''){
+  const base = `Hi ${name}, saya sudah tengok landing page ToneWow.`;
+  const msg = extra ? `${base} ${extra}` : `${base} Saya mahu tahu lebih lanjut / mahu daftar. Boleh bantu saya?`;
   return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
 }
-
 function applyAgent(name,phone){
+  activeAgent = {name, phone};
   document.getElementById('agentLine').textContent = `Dikongsi oleh ${name}`;
   document.getElementById('displayName').textContent = name;
   document.getElementById('displayPhone').textContent = prettyPhone(phone);
   document.getElementById('agentName').value = name;
   document.getElementById('agentPhone').value = phone;
-  document.getElementById('sheetName').value = name;
-  document.getElementById('sheetPhone').value = phone;
-  ['topWA','heroWA','floatWA'].forEach(id => document.getElementById(id).href = waLink(name,phone));
+  ['navWA','heroWA','ctaWA','floatWA'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.href=waLink(name,phone);
+  });
 }
-
+function askPackage(pkg){
+  const a=activeAgent;
+  window.open(waLink(a.name,a.phone,`Saya berminat dengan pakej ${pkg}. Boleh terangkan langkah pendaftaran?`),'_blank');
+}
+function askPlan(plan){
+  const a=activeAgent;
+  window.open(waLink(a.name,a.phone,`Saya mahu tahu lebih lanjut tentang pelan ${plan}.`),'_blank');
+}
 function buildAgentLink(){
-  const name = document.getElementById('agentName').value.trim() || 'Agen ToneWow';
-  const phone = cleanPhone(document.getElementById('agentPhone').value);
-  if(!phone){ alert('Masukkan nombor WhatsApp.'); return; }
+  const name=document.getElementById('agentName').value.trim() || 'Agen ToneWow';
+  const phone=cleanPhone(document.getElementById('agentPhone').value);
+  if(!phone){ alert('Masukkan nombor WhatsApp dahulu.'); return; }
 
-  const u = new URL(location.href);
-  u.search = '';
-  u.hash = '';
+  const u=new URL(location.href);
+  u.search='';
+  u.hash='';
   u.searchParams.set('nama',name);
   u.searchParams.set('wa',phone);
-  document.getElementById('shareLink').value = u.toString();
+  document.getElementById('shareLink').value=u.toString();
   applyAgent(name,phone);
 }
-
 async function copyLink(){
-  let v = document.getElementById('shareLink').value;
-  if(!v){ buildAgentLink(); v = document.getElementById('shareLink').value; }
+  let v=document.getElementById('shareLink').value;
+  if(!v){ buildAgentLink(); v=document.getElementById('shareLink').value; }
   try{
     await navigator.clipboard.writeText(v);
     document.getElementById('copyStatus').textContent='Link sudah dicopy.';
@@ -319,23 +570,7 @@ async function copyLink(){
     document.getElementById('copyStatus').textContent='Tekan lama pada link dan pilih Copy.';
   }
 }
-
-function openEditor(){ document.getElementById('drawer').classList.add('show'); }
-function closeEditor(){ document.getElementById('drawer').classList.remove('show'); }
-function closeOutside(e){ if(e.target.id==='drawer') closeEditor(); }
-
-function saveFromSheet(){
-  const name = document.getElementById('sheetName').value.trim() || 'Agen ToneWow';
-  const phone = cleanPhone(document.getElementById('sheetPhone').value);
-  if(!phone){ alert('Masukkan nombor WhatsApp.'); return; }
-  document.getElementById('agentName').value = name;
-  document.getElementById('agentPhone').value = phone;
-  buildAgentLink();
-  closeEditor();
-  location.href = document.getElementById('shareLink').value;
-}
-
-const a=currentAgent();
+const a=activeAgent;
 applyAgent(a.name,a.phone);
 buildAgentLink();
 </script>
