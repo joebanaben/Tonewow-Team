@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ToneWow | Kaizen Radu Saja</title>
+<meta name="description" content="Kenali ToneWow, bandingkan manfaat, lihat pakej dan pelan data, kemudian hubungi agen melalui WhatsApp.">
+<style>
+:root{
+  --navy:#061528; --navy2:#0b2b50; --blue:#0f6fff; --sky:#48c8ff;
+  --gold:#f2c24e; --white:#fff; --muted:#b9c9da; --green:#25d366;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 85% 4%,rgba(15,111,255,.25),transparent 24%),
+    linear-gradient(180deg,#05111f 0%,#0b2442 48%,#07182c 100%);
+  color:#fff;line-height:1.55;
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:min(1120px,92%);margin:auto}
+.top{
+  position:sticky;top:0;z-index:40;background:rgba(5,17,31,.88);
+  backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)
+}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brandrow{display:flex;align-items:center;gap:12px}
+.brandrow img{object-fit:contain}
+.brandrow .tw{height:36px;width:auto;background:white;border-radius:8px;padding:4px}
+.brandrow .kz{height:48px;width:auto;border-radius:7px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 18px;border-radius:14px;font-weight:850;border:1px solid transparent;
+  cursor:pointer
+}
+.btn-gold{background:linear-gradient(135deg,#f4c552,#ffe49a);color:#17212d}
+.btn-wa{background:#25d366;color:#06150b}
+.btn-ghost{border-color:rgba(255,255,255,.15);background:rgba(255,255,255,.05)}
+.hero{padding:66px 0 44px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.pill{
+  display:inline-block;padding:7px 11px;border-radius:999px;
+  color:#ffe9ae;border:1px solid rgba(244,197,82,.38);
+  background:rgba(244,197,82,.08);font-size:12px;font-weight:850
+}
+h1{font-size:clamp(40px,6vw,72px);line-height:1.02;letter-spacing:-2px;margin:15px 0}
+h2{font-size:clamp(28px,4vw,44px);line-height:1.1;letter-spacing:-1px;margin:0 0 10px}
+.gold{color:var(--gold)}
+.lead{font-size:18px;color:#d6e2ef;max-width:660px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.agentline{margin-top:19px;color:#b9c9da;font-size:14px}
+.hero-card{
+  background:linear-gradient(180deg,rgba(15,47,84,.95),rgba(8,28,51,.98));
+  border:1px solid rgba(255,255,255,.10);border-radius:28px;padding:18px;
+  box-shadow:0 25px 70px rgba(0,0,0,.28)
+}
+.hero-card img{border-radius:22px}
+section{padding:55px 0}
+.sec-intro{color:var(--muted);max-width:720px;margin:0 0 25px}
+.image-panel{
+  padding:12px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10);
+  border-radius:24px;box-shadow:0 18px 50px rgba(0,0,0,.22)
+}
+.image-panel img{width:100%;border-radius:16px}
+.note{
+  margin-top:12px;color:#a9bad0;font-size:12px;text-align:center
+}
+.quick{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px
+}
+.q{
+  padding:17px;border-radius:18px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);text-align:center
+}
+.q b{display:block;font-size:15px}
+.q span{color:#b7c8da;font-size:12px}
+.cta{
+  border-radius:28px;padding:30px;background:linear-gradient(135deg,#0d427e,#0d73d8);
+  border:1px solid rgba(255,255,255,.12)
+}
+.cta-grid{display:grid;grid-template-columns:1fr .9fr;gap:24px;align-items:start}
+.formbox{
+  padding:20px;border-radius:20px;background:rgba(5,18,34,.50);
+  border:1px solid rgba(255,255,255,.11)
+}
+label{display:block;font-size:12px;color:#d2deeb;margin:0 0 6px}
+input{
+  width:100%;padding:13px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.15);
+  background:#07192d;color:#fff;margin-bottom:12px;outline:none
+}
+input:focus{border-color:#63b7ff}
+.sharebox{display:flex;gap:8px}
+.sharebox input{margin:0}
+.small{font-size:12px;color:#aebed0}
+.preview{
+  border-radius:16px;background:#07192c;padding:15px;border:1px solid rgba(255,255,255,.1);
+  margin-top:13px
+}
+.preview-name{font-size:20px;font-weight:900}
+.footer{padding:30px 0 90px;color:#93a9bf;font-size:12px;text-align:center}
+.float-wa{
+  position:fixed;right:14px;bottom:14px;z-index:45;background:#25d366;color:#06150b;
+  font-weight:900;border-radius:999px;padding:14px 18px;box-shadow:0 16px 38px rgba(0,0,0,.32)
+}
+.editbtn{
+  position:fixed;left:14px;bottom:14px;z-index:45;background:#fff;color:#0b2037;
+  font-weight:850;border-radius:999px;padding:12px 16px;border:0;box-shadow:0 16px 38px rgba(0,0,0,.28)
+}
+.drawer{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:60;display:none;align-items:flex-end;justify-content:center
+}
+.drawer.show{display:flex}
+.sheet{
+  width:min(560px,100%);background:#0a2039;border-radius:24px 24px 0 0;padding:22px;
+  border-top:1px solid rgba(255,255,255,.12)
+}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.close{background:rgba(255,255,255,.08);color:#fff;border:0;border-radius:10px;padding:8px 11px}
+@media(max-width:850px){
+  .hero-grid,.cta-grid{grid-template-columns:1fr}
+  .quick{grid-template-columns:1fr 1fr}
+  .hero{padding-top:44px}
+  .brandrow .kz{height:40px}
+  .brandrow .tw{height:30px}
+}
+@media(max-width:520px){
+  .quick{grid-template-columns:1fr 1fr}
+  .nav .btn{display:none}
+  h1{letter-spacing:-1px}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap nav">
+    <div class="brandrow">
+      <img src="kaizen.webp" class="kz" alt="Kaizen Radu Saja">
+      <img src="tonewow-logo.webp" class="tw" alt="ToneWow powered by CelcomDigi">
+    </div>
+    <a id="topWA" class="btn btn-wa" target="_blank">WhatsApp Agen</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill">SATU SIM • BANYAK MANFAAT</span>
+      <h1>SIM Card Biasa Guna.<br><span class="gold">ToneWow Bagi Lebih.</span></h1>
+      <p class="lead">
+        Tengok perbezaan, pilih pakej dan pelan data yang sesuai, kemudian terus hubungi agen melalui WhatsApp.
+      </p>
+      <div class="actions">
+        <a href="#beza" class="btn btn-gold">Tengok Perbezaan</a>
+        <a id="heroWA" class="btn btn-wa" target="_blank">WhatsApp Sekarang</a>
+      </div>
+      <div class="agentline" id="agentLine">Dikongsi oleh Branch Joe</div>
+    </div>
+
+    <div class="hero-card">
+      <img src="sim.webp" alt="SIM Card ToneWow">
+    </div>
+  </div>
+</header>
+
+<section id="beza">
+  <div class="wrap">
+    <h2>Apa beza SIM biasa dengan ToneWow?</h2>
+    <p class="sec-intro">Gambar penerangan ini dimasukkan terus dalam landing page supaya prospek boleh faham dengan cepat.</p>
+    <div class="image-panel">
+      <img src="comparison.webp" alt="Perbandingan SIM biasa dan ToneWow">
+    </div>
+  </div>
+</section>
+
+<section id="pakej">
+  <div class="wrap">
+    <h2>Pilih pakej ToneWow</h2>
+    <p class="sec-intro">Prospek boleh tengok sendiri pilihan pakej sebelum bertanya kepada agen.</p>
+    <div class="image-panel">
+      <img src="packages.webp" alt="Pakej ToneWow">
+    </div>
+  </div>
+</section>
+
+<section id="data">
+  <div class="wrap">
+    <h2>Pelan data ToneWow</h2>
+    <p class="sec-intro">FU35 hingga FU120 dipaparkan dalam satu bahagian yang mudah dibanding.</p>
+    <div class="image-panel">
+      <img src="data-plans.webp" alt="Pelan Data ToneWow">
+    </div>
+
+    <div class="quick">
+      <div class="q"><b>Internet</b><span>Pilihan data ikut keperluan</span></div>
+      <div class="q"><b>Call</b><span>Ikut manfaat pelan</span></div>
+      <div class="q"><b>Cashback</b><span>Manfaat mengikut terma semasa</span></div>
+      <div class="q"><b>WhatsApp Agen</b><span>Terus tanya dan daftar</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="daftar">
+  <div class="wrap">
+    <div class="cta">
+      <div class="cta-grid">
+        <div>
+          <span class="pill">LANGKAH SETERUSNYA</span>
+          <h2 style="margin-top:12px">Mahu daftar atau mahu tahu lebih lanjut?</h2>
+          <p class="lead" style="font-size:16px">
+            Tekan WhatsApp. Mesej akan terus pergi kepada agen yang berkongsi link ini.
+          </p>
+          <div class="preview">
+            <div class="small">Agen anda</div>
+            <div class="preview-name" id="displayName">Branch Joe</div>
+            <div class="small" id="displayPhone">01171110960</div>
+          </div>
+        </div>
+
+        <div class="formbox">
+          <div style="font-weight:900;font-size:18px;margin-bottom:12px">Buat link agen sendiri</div>
+          <label>Nama agen</label>
+          <input id="agentName" value="Branch Joe" placeholder="Contoh: Stella">
+          <label>Nombor WhatsApp</label>
+          <input id="agentPhone" value="601171110960" placeholder="Contoh: 60123456789">
+          <button class="btn btn-gold" style="width:100%" onclick="buildAgentLink()">Buat Link Saya</button>
+
+          <label style="margin-top:14px">Link untuk share</label>
+          <div class="sharebox">
+            <input id="shareLink" readonly>
+            <button class="btn btn-ghost" onclick="copyLink()">Copy</button>
+          </div>
+          <div id="copyStatus" class="small" style="margin-top:8px"></div>
+          <p class="small">Bila link ini dibuka, nama agen dan butang WhatsApp akan berubah ikut agen tersebut.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  ToneWow • Kaizen Radu Saja<br>
+  Maklumat promosi/pelan boleh berubah. Sahkan maklumat terkini sebelum pendaftaran.
+</div>
+
+<button class="editbtn" onclick="openEditor()">Tukar Agen</button>
+<a id="floatWA" class="float-wa" target="_blank">WhatsApp Agen</a>
+
+<div id="drawer" class="drawer" onclick="closeOutside(event)">
+  <div class="sheet">
+    <div class="sheet-head">
+      <strong>Tukar Nama & WhatsApp</strong>
+      <button class="close" onclick="closeEditor()">Tutup</button>
+    </div>
+    <label>Nama agen</label>
+    <input id="sheetName" placeholder="Nama agen">
+    <label>Nombor WhatsApp</label>
+    <input id="sheetPhone" placeholder="60123456789">
+    <button class="btn btn-gold" style="width:100%" onclick="saveFromSheet()">Guna Agen Ini</button>
+  </div>
+</div>
+
+<script>
+function cleanPhone(v){ return (v||'').replace(/\D/g,''); }
+
+function currentAgent(){
+  const q = new URLSearchParams(location.search);
+  return {
+    name: q.get('nama') || 'Branch Joe',
+    phone: cleanPhone(q.get('wa') || '601171110960')
+  };
+}
+
+function prettyPhone(phone){
+  if(phone.startsWith('60')) return '0' + phone.slice(2);
+  return phone;
+}
+
+function waLink(name,phone){
+  const msg = `Hi ${name}, saya sudah tengok landing page ToneWow. Saya mahu tahu lebih lanjut / mahu daftar. Boleh bantu saya?`;
+  return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+}
+
+function applyAgent(name,phone){
+  document.getElementById('agentLine').textContent = `Dikongsi oleh ${name}`;
+  document.getElementById('displayName').textContent = name;
+  document.getElementById('displayPhone').textContent = prettyPhone(phone);
+  document.getElementById('agentName').value = name;
+  document.getElementById('agentPhone').value = phone;
+  document.getElementById('sheetName').value = name;
+  document.getElementById('sheetPhone').value = phone;
+  ['topWA','heroWA','floatWA'].forEach(id => document.getElementById(id).href = waLink(name,phone));
+}
+
+function buildAgentLink(){
+  const name = document.getElementById('agentName').value.trim() || 'Agen ToneWow';
+  const phone = cleanPhone(document.getElementById('agentPhone').value);
+  if(!phone){ alert('Masukkan nombor WhatsApp.'); return; }
+
+  const u = new URL(location.href);
+  u.search = '';
+  u.hash = '';
+  u.searchParams.set('nama',name);
+  u.searchParams.set('wa',phone);
+  document.getElementById('shareLink').value = u.toString();
+  applyAgent(name,phone);
+}
+
+async function copyLink(){
+  let v = document.getElementById('shareLink').value;
+  if(!v){ buildAgentLink(); v = document.getElementById('shareLink').value; }
+  try{
+    await navigator.clipboard.writeText(v);
+    document.getElementById('copyStatus').textContent='Link sudah dicopy.';
+  }catch(e){
+    document.getElementById('copyStatus').textContent='Tekan lama pada link dan pilih Copy.';
+  }
+}
+
+function openEditor(){ document.getElementById('drawer').classList.add('show'); }
+function closeEditor(){ document.getElementById('drawer').classList.remove('show'); }
+function closeOutside(e){ if(e.target.id==='drawer') closeEditor(); }
+
+function saveFromSheet(){
+  const name = document.getElementById('sheetName').value.trim() || 'Agen ToneWow';
+  const phone = cleanPhone(document.getElementById('sheetPhone').value);
+  if(!phone){ alert('Masukkan nombor WhatsApp.'); return; }
+  document.getElementById('agentName').value = name;
+  document.getElementById('agentPhone').value = phone;
+  buildAgentLink();
+  closeEditor();
+  location.href = document.getElementById('shareLink').value;
+}
+
+const a=currentAgent();
+applyAgent(a.name,a.phone);
+buildAgentLink();
+</script>
+</body>
+</html>
